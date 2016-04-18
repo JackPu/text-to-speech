@@ -1,0 +1,152 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body{
+    font-size: 16px;
+    font-family: Microsoft Yahei, SimHei, arial, sans-serif;
+}
+.page{
+    position: relative;
+    width: 100%;
+}
+img{
+    max-width: 100%;
+}
+a{
+    color: #1ba1e2;
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+    padding-top: 30px;
+}
+
+h1 img{
+    width: 480px;
+    
+}
+h2{
+    width: 960px;
+    margin: 0 auto;
+    line-height: 35px;
+    font-size: 18px;
+    padding: 15px;
+    background: #f1f1f1;
+}
+
+.img-wrap{
+    width: 660px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.img-wrap .item{
+    width: 320px;
+    text-align: center;
+}
+p{
+    padding: 10px;
+    color:#454545;
+}
+.img-wrap .item .filter-use{
+    color: #1ba1e2;
+}
+
+.m-form{
+    text-align: center;
+    background: #f3f3f3;
+    padding: 20px;
+}
+
+.search{
+    width: 180px;
+    height: 32px;
+    border:1px solid #ddd;
+}
+.doc{
+    width: 960px;
+    margin: 20px auto;
+}
+.ft{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+@media all and (max-width:960px) {
+    h2,.doc,.img-wrap{
+        width:95%;
+        flex-wrap: wrap;
+    }
+    .img-wrap .item{
+        width: 100%'
+    }
+}
+/** view doc https://highlightjs.org **/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f7f7f7;
+}
+.hljs,
+.hljs-subst {
+  color: #2c3e50;
+}
+.hljs-comment {
+  color: #999;
+}
+.hljs-keyword,
+.hljs-attribute,
+.hljs-selector-tag,
+.hljs-meta-keyword,
+.hljs-doctag,
+.hljs-name {
+  font-weight: bold;
+}
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+  color: #e74c3c;
+}
+.hljs-title,
+.hljs-section {
+  color: #e74c3c;
+  font-weight: bold;
+}
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #bc6060;
+}
+.hljs-literal {
+  color: #78a960;
+}
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+  color: #16a085;
+}
+.hljs-meta {
+  color: #2980b9;
+}
+.hljs-meta-string {
+  color: #2980b9;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}
