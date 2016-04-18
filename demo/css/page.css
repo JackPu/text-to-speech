@@ -35,7 +35,9 @@ h2{
     padding: 15px;
     background: #f1f1f1;
 }
-
+ul{
+    padding-left: 40px;
+}
 .img-wrap{
     width: 660px;
     margin: 60px auto;
@@ -73,7 +75,9 @@ p{
     padding-top: 40px;
     padding-bottom: 30px;
 }
-
+pre{
+    border-width: 0px;
+}
 @media all and (max-width:960px) {
     h2,.doc,.img-wrap{
         width:95%;

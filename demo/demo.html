@@ -1,0 +1,245 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>Use JavaScipt to Speech Your Text / Events of Jack Pu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/page.css" />
+    <link rel="stylesheet" href="./css/cssgram.min.css">
+</head>
+
+<body>
+    <a href="https://github.com/JackPu/text-to-speech" title="Fork me on GitHub" class="github-corner">
+        <svg width="80" height="80" viewbox="0 0 250 250">
+            <title>Fork me on GitHub</title>
+            <path d="M0 0h250v250"></path>
+            <path d="M127.4 110c-14.6-9.2-9.4-19.5-9.4-19.5 3-7 1.5-11 1.5-11-1-6.2 3-2 3-2 4 4.7 2 11 2 11-2.2 10.4 5 14.8 9 16.2" fill="currentColor" style="transform-origin:130px 110px" class="octo-arm"></path>
+            <path d="M113.2 114.3s3.6 1.6 4.7.6l15-13.7c3-2.4 6-3 8.2-2.7-8-11.2-14-25 3-41 4.7-4.4 10.6-6.4 16.2-6.4.6-1.6 3.6-7.3 11.8-10.7 0 0 4.5 2.7 6.8 16.5 4.3 2.7 8.3 6 12 9.8 3.3 3.5 6.7 8 8.6 12.3 14 3 16.8 8 16.8 8-3.4 8-9.4 11-11.4 11 0 5.8-2.3 11-7.5 15.5-16.4 16-30 9-40 .2 0 3-1 7-5.2 11l-13.3 11c-1 1 .5 5.3.8 5z" fill="currentColor" class="octo-body"></path>
+        </svg>
+        <style>
+            .github-corner svg {
+                position: absolute;
+                right: 0;
+                top: 0;
+                ;
+                color: #fff;
+                fill: #000;
+            }
+            
+            .github-corner:hover .octo-arm {
+                animation: octocat-wave .56s;
+            }
+            
+            @keyframes octocat-wave {
+                0%, 100% {
+                    transform: rotate(0);
+                }
+                20%,
+                60% {
+                    transform: rotate(-20deg);
+                }
+                40%,
+                80% {
+                    transform: rotate(10deg);
+                }
+            }
+        </style>
+    </a>
+    <div class="doc">
+        <h1 class="splash-head"><img src="./images/jtt.jpg"/></h1>
+        <h1>Use JavaScript to Speech Your Text </h1>
+        <h3 class="text-center">使用JavaScript 拼读你的文本</h3>
+        <p>在w3c草案中增加了对<a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web Speech Api</a>的支持;主要作用在 两个非常重要的方面:
+        </p>
+        <ul>
+            <li><a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#speechreco-section">语音识别</a> (将所说的转换成文本文字 / speech to text);</li>
+            <li><a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#tts-section">语音合成</a> (将文本文字读出来 / text to speech);</li>
+        </ul>
+        <p>而chrome在版本33发布后宣布对该特性的支持;今天重要介绍第二部分。</p>
+        <h3><a id="_9"></a>开始使用</h3>
+        <h4><button type="button" class="btn btn-primary js-speack-one">speack "hello captain"</button></h4>
+        <pre><code class="language-js"><span class="hljs-comment">// 你可以直接打开你的控制台粘贴下面代码</span>
+<span class="hljs-keyword">var</span> words = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance(<span class="hljs-string">'Hello captain'</span>);
+<span class="hljs-built_in">window</span>.speechSynthesis.speak(words);
+</code></pre>
+        <h4>Demo2:</h4>
+        <p>当然你还可以修改很多参数去调整你的发音:</p>
+        <h4><button type="button" class="btn btn-primary js-change-one">change accent "hello captain"</button></h4>
+        <ul>
+            <li><code>volume</code>:声音;</li>
+            <li><code>rate</code>:发音速度;</li>
+            <li><code>pitch</code>:音调;</li>
+            <li><code>voice</code>:声音;</li>
+            <li><code>language</code>:语言(en,zh,ja…<a href="http://www.mathguide.de/info/tools/languagecode.html">更多参考</a>)</li>
+        </ul>
+        <pre><code class="language-js"><span class="hljs-keyword">var</span> words = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
+<span class="hljs-keyword">var</span> voices = <span class="hljs-built_in">window</span>.speechSynthesis.getVoices();
+msg.voice = voices[<span class="hljs-number">10</span>]; <span class="hljs-comment">// </span>
+msg.voiceURI = <span class="hljs-string">'native'</span>;
+msg.volume = <span class="hljs-number">1</span>; <span class="hljs-comment">// 0 to 1</span>
+msg.rate = <span class="hljs-number">1</span>; <span class="hljs-comment">// 0.1 to 10</span>
+msg.pitch = <span class="hljs-number">2</span>; <span class="hljs-comment">//0 to 2</span>
+msg.text = <span class="hljs-string">'I am Stark'</span>;
+msg.lang = <span class="hljs-string">'en'</span>;
+
+msg.onend = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Finished in '</span> + event.elapsedTime + <span class="hljs-string">' seconds.'</span>);
+};
+
+speechSynthesis.speak(msg);
+</code></pre>
+        <h4><a id="_43"></a>设置发音</h4>
+        <p>你可以通过下面函数获取可以使用的发音列表名称</p>
+        <pre><code class="language-js">speechSynthesis.getVoices().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">voice</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(voice.name, voice.default ? <span class="hljs-string">'(default)'</span> :<span class="hljs-string">''</span>);
+});
+</code></pre>
+        <p>大概你可以获取下面的一个列表</p>
+        <pre><code class="language-js"><span class="hljs-comment">// 省略一部分结果</span>
+Google Deutsch 
+Google US English 
+Google UK English Female 
+Google UK English Male 
+Google 日本語 
+Google 普通话（中国大陆）  
+Google 國語（臺灣） 
+</code></pre>
+        <p>接下来我们可以试验下改变发音名称</p>
+        <h4><button type="button" class="btn btn-primary js-change-vocie">change voice</button></h4>
+        <pre><code class="language-js"><span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance(<span class="hljs-string">'hey captain,sometime I just want to break you perfect teeth'</span>);
+msg.voice = speechSynthesis.getVoices().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">voice</span>) </span>{ <span class="hljs-keyword">return</span> voice.name == <span class="hljs-string">'Google US English'</span>; })[<span class="hljs-number">0</span>];
+speechSynthesis.speak(msg);
+</code></pre>
+        <p>除了英文，我们还可以使用其他语言</p>
+         <h4>
+             <button type="button" class="btn btn-primary js-speack-japanese">speack 'おはようございます'</button>
+             <button type="button" class="btn btn-default js-speack-chinese">说出“美国队长”</button>
+        
+        </h4>
+        <pre><code class="language-JS"><span class="hljs-comment">// 使用日语</span>
+<span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance(<span class="hljs-string">'おはようございます'</span>);
+msg.voice = speechSynthesis.getVoices().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">voice</span>) </span>{ <span class="hljs-keyword">return</span> voice.name == <span class="hljs-string">'Google 日本語'</span>; })[<span class="hljs-number">0</span>];
+speechSynthesis.speak(msg);
+<span class="hljs-comment">// or 使用中文</span>
+<span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance(<span class="hljs-string">'美国队长3'</span>);
+msg.voice = speechSynthesis.getVoices().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">voice</span>) </span>{ <span class="hljs-keyword">return</span> voice.name == <span class="hljs-string">'Google 普通话（中国大陆）'</span>; })[<span class="hljs-number">0</span>];
+speechSynthesis.speak(msg);
+</code></pre>
+        <h3><a id="_81"></a>浏览器支持</h3>
+        <ul>
+            <li>Chrome 33+</li>
+            <li>iOS7 safari部分支持 (测试iOS8支持,iOS9不支持)</li>
+        </ul>
+        <p>兼容性检测</p>
+        <pre><code class="language-js"><span class="hljs-keyword">if</span> (<span class="hljs-string">'speechSynthesis'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">window</span>) {
+ <span class="hljs-comment">// Synthesis support. Make your web apps talk!</span>
+}
+
+</code></pre>
+        <p>如果对于不支持的浏览器，我们可以使用老的方法，即将需要发音的单词发送到服务端进行处理，返回一个音频，类似如下:</p>
+        <pre><code class="language-js"><span class="hljs-comment">// 使用来自谷歌翻译的音频</span>
+<span class="hljs-keyword">var</span> audio = <span class="hljs-keyword">new</span> Audio();
+audio.src =<span class="hljs-string">'http://translate.google.com/translate_tts?ie=utf-8&amp;tl=en&amp;q='</span> + <span class="hljs-built_in">encodeURI</span>(<span class="hljs-string">'hello captain'</span>);
+audio.play();
+</code></pre>
+        <h3><a id="_102"></a>推荐框架</h3>
+        <p>当然我们如果追求快速开发的话，我们现在依旧有成熟的框架来支持这个功能，让他实现更多浏览器的支持。</p>
+        <ul>
+            <li>
+                <p><a href="http://responsivevoice.org/">ResponsiveVoice.JS</a> 是一款基于html5的跨平台的发音支持类库，支持超过56种语言和168种 声音，分为免费版和商业版。
+                    <a href="http://events.jackpu.com/text-to-speech/">Demo</a>
+                </p>
+            </li>
+            <li>
+                <p><a href="https://github.com/kripken/speak.js/">speak.js</a> 基于eSpeack改造而来的一款js单词拼读类库.</p>
+            </li>
+            <li>
+                <p><a href="http://www.masswerk.at/mespeak/">meSpeak.js </a>是一个100%的客户端发音类库，支持chrome和safari，并且无需要任何html元素；</p>
+            </li>
+            <li>
+                <p><a href="https://github.com/marak/say.js/">say.js</a>一款基于node.js的发音扩展类库。</p>
+            </li>
+        </ul>
+        <p>持续更新中…</p>
+        <h3><a id="_116"></a>参考</h3>
+        <p>[1] <a href="https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API?hl=en">Web apps that talk - Introduction to the Speech Synthesis API
+</a>
+        </p>
+        <p>[2] <a href="http://stackoverflow.com/questions/15653145/using-google-text-to-speech-in-javascript">using-google-text-to-speech-in-javascript</a>
+        </p>
+        <p>[3] <a href="https://www.youtube.com/watch?time_continue=1695&amp;v=N_wTBKMuJis">A More Awesome Web: Features You’ve Always Wanted - Google I/O 2013
+</a>
+        </p>
+        <p>[4] <a href="https://lists.w3.org/Archives/Public/public-xg-htmlspeech/2011Nov/att-0008/web-speech-sample-code.html">HTML Speech API Examples</a>
+        </p>
+
+        <p class="ft">
+            更多说明:
+
+        </p>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_sharing_toolbox"></div>
+    </div>
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=55332900" charset="UTF-8"></script>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="http://s1.vued.vanthink.cn/responsivevoice.no_debug.min.js"></script>
+    <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //  $('.js-words').focus();
+            $('.js-speack-one').on('click', function () {
+                var words = new SpeechSynthesisUtterance('Hello captain');
+                window.speechSynthesis.speak(words);
+            });
+            $('.js-change-one').on('click', function () {
+                var msg = new SpeechSynthesisUtterance();
+                var voices = window.speechSynthesis.getVoices();
+                msg.voice = voices[10]; // 
+                msg.voiceURI = 'native';
+                msg.volume = 1; // 0 to 1
+                msg.rate = 1; // 0.1 to 10
+                msg.pitch = 2; //0 to 2
+                msg.text = 'I am Stark';
+                msg.lang = 'en';
+
+                msg.onend = function(e) {
+                  console.log('Finished in ' + event.elapsedTime + ' seconds.');
+                };
+
+                speechSynthesis.speak(msg);
+            });
+            $('.js-change-vocie').on('click', function () {
+                var msg = new SpeechSynthesisUtterance('hey captain,sometime I just want to break you perfect teeth');
+                msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Google US English'; })[0];
+                speechSynthesis.speak(msg);
+            });
+            $('.js-speack-japanese').on('click', function () {
+                var msg = new SpeechSynthesisUtterance('おはようございます');
+                msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Google 日本語'; })[0];
+                speechSynthesis.speak(msg);
+            });
+            $('.js-speack-chinese').on('click', function () {
+                var msg = new SpeechSynthesisUtterance('美国队长3');
+                msg.voice = speechSynthesis.getVoices().filter(function(voice) { return voice.name == 'Google 普通话（中国大陆）'; })[0];
+                speechSynthesis.speak(msg);
+            });
+        })
+    </script>
+
+</body>
+
+</html>

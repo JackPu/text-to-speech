@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Use JavaScipt to Speech Your Text /Event</title>
+    <title>Use JavaScipt to Speech Your Text / Events of Jack Pu</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -22,7 +22,7 @@
         <h3>Demo:</h3>
         <form class="m-form">
             <div class="form-group">
-                <input type="text" class="form-control js-words" placeholder="拼读的文本(hello world)"/>
+                <input type="text" autofocus class="form-control js-words" placeholder="拼读的文本(hello world)"/>
                
             </div>
             <div class="form-group">
@@ -64,6 +64,7 @@
 <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
 <script type="text/javascript">
     $(document).ready(function() {
+      //  $('.js-words').focus();
         $('.js-speak-word').on('click',function() {
             var role  = $('.js-role').val().trim() || 'UK English Female';
             var options = {
