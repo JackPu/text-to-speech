@@ -26,7 +26,7 @@ window.speechSynthesis.speak(words);
 + `language`:语言(en,zh,ja...[更多参考](http://www.mathguide.de/info/tools/languagecode.html))
 
 ``` js
-var words = new SpeechSynthesisUtterance();
+var msg = new SpeechSynthesisUtterance();
 var voices = window.speechSynthesis.getVoices();
 msg.voice = voices[10]; // 
 msg.voiceURI = 'native';
@@ -40,7 +40,7 @@ msg.onend = function(e) {
   console.log('Finished in ' + event.elapsedTime + ' seconds.');
 };
 
-speechSynthesis.speak(words);
+speechSynthesis.speak(msg);
 ```
 
 #### 设置发音

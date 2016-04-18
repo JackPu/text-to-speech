@@ -70,7 +70,7 @@
 </code></pre>
         <h4>Demo2:</h4>
         <p>当然你还可以修改很多参数去调整你的发音:</p>
-        <h4><button type="button" class="btn btn-primary js-change-one">change accent "hello captain"</button></h4>
+        <h4><button type="button" class="btn btn-primary js-change-one">change accent "I am Stark"</button></h4>
         <ul>
             <li><code>volume</code>:声音;</li>
             <li><code>rate</code>:发音速度;</li>
@@ -78,7 +78,7 @@
             <li><code>voice</code>:声音;</li>
             <li><code>language</code>:语言(en,zh,ja…<a href="http://www.mathguide.de/info/tools/languagecode.html">更多参考</a>)</li>
         </ul>
-        <pre><code class="language-js"><span class="hljs-keyword">var</span> words = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
+        <pre><code class="language-js"><span class="hljs-keyword">var</span> msg = <span class="hljs-keyword">new</span> SpeechSynthesisUtterance();
 <span class="hljs-keyword">var</span> voices = <span class="hljs-built_in">window</span>.speechSynthesis.getVoices();
 msg.voice = voices[<span class="hljs-number">10</span>]; <span class="hljs-comment">// </span>
 msg.voiceURI = <span class="hljs-string">'native'</span>;
