@@ -7,6 +7,8 @@
 
 而chrome在版本33发布后宣布对该特性的支持;今天重要介绍第二部分。
 
+[演示地址](http://events.jackpu.com/text-to-speech/demo.html)
+
 ### 开始使用
 
 ``` js
