@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Use JavaScipt to Speech Your Text / Events of Jack Pu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/page.css" />
+    <link rel="stylesheet" href="./css/cssgram.min.css">
+</head>
+
+<body>
+    <a href="https://github.com/JackPu/text-to-speech" title="Fork me on GitHub" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250"><title>Fork me on GitHub</title><path d="M0 0h250v250"></path><path d="M127.4 110c-14.6-9.2-9.4-19.5-9.4-19.5 3-7 1.5-11 1.5-11-1-6.2 3-2 3-2 4 4.7 2 11 2 11-2.2 10.4 5 14.8 9 16.2" fill="currentColor" style="transform-origin:130px 110px" class="octo-arm"></path><path d="M113.2 114.3s3.6 1.6 4.7.6l15-13.7c3-2.4 6-3 8.2-2.7-8-11.2-14-25 3-41 4.7-4.4 10.6-6.4 16.2-6.4.6-1.6 3.6-7.3 11.8-10.7 0 0 4.5 2.7 6.8 16.5 4.3 2.7 8.3 6 12 9.8 3.3 3.5 6.7 8 8.6 12.3 14 3 16.8 8 16.8 8-3.4 8-9.4 11-11.4 11 0 5.8-2.3 11-7.5 15.5-16.4 16-30 9-40 .2 0 3-1 7-5.2 11l-13.3 11c-1 1 .5 5.3.8 5z" fill="currentColor" class="octo-body"></path></svg><style> .github-corner svg{position:absolute;right:0;top:0;;color:#fff;fill:#000;}.github-corner:hover .octo-arm{animation:octocat-wave .56s;}@keyframes octocat-wave{0%, 100%{transform:rotate(0);}20%, 60%{transform:rotate(-20deg);}40%, 80%{transform:rotate(10deg);}}</style></a>
+    <div class="doc">
+        <h1 class="splash-head"><img src="./images/jtt.jpg"/></h1>
+        <h1>Use JavaScript to Speech Your Text </h1>
+        <h3 class="text-center">使用JavaScript 拼读你的文本</h3>
+        <h3>Demo:</h3>
+        <form class="m-form">
+            <div class="form-group">
+                <input type="text" autofocus class="form-control js-words" placeholder="拼读的文本(hello world)"/>
+               
+            </div>
+            <div class="form-group">
+                 <input type="text" class="form-control js-rate" placeholder="音频速度(0-1.5)"/>
+            </div>
+            <div class="form-group">
+                 <select class="form-control js-role">
+                    <option value="">请选择发音人物</option>
+                    <option value="UK English Female">英式女士</option>
+                    <option value="US English Female">美式女士</option>
+                    <option value="UK English Male">英式男士</option>
+                    <option value="Japanese Female">日本女士</option>
+                    <option value="Chinese Female">中国女士</option>
+                    <option value="Australian Female">澳洲女士</option>
+                 </select>
+                <p class="text-left">默认为英式女性发音</p>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary js-speak-word">点击按钮发音</button>
+            </div>
+        </form>
+        <h3>速度对比</h3>
+        <table class="table">
+            <tr>
+                <th>样句</th>
+                <th>预加载时间</th>
+                <th>时间</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td><span class="js-sentence">Hello I am Stark</span></td>
+                <td><span class="js-pre-time">未测试(0s)</span></td>
+                <td><span class="js-time">未测试(0s)</span></td>
+                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
+            </tr>
+            <tr>
+                <td><span class="js-sentence">Hello-I-am-Stark</span></td>
+                 <td><span class="js-pre-time">未测试(0s)</span></td>
+                <td><span class="js-time">未测试(0s)</span></td>
+                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
+            </tr>
+            <tr>
+                <td><span class="js-sentence">The cake in the photo had "Love Wins Fag" written on it in frosting — a message that would likely be upsetting to many</span></td>
+                 <td><span class="js-pre-time">未测试(0s)</span></td>
+                <td><span class="js-time">未测试(0s)</span></td>
+                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
+            </tr>
+            <tr>
+                <td><span class="js-sentence">The-cake-in-the-photo-had-"Love Wins Fag"-written-on-it-in-frosting — a-message-that-would-likely-be-upsetting-to-many</span></td>
+                 <td><span class="js-pre-time">未测试(0s)</span></td>
+                <td><span class="js-time">未测试(0s)</span></td>
+                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
+            </tr>
+        </table>
+            
+            <p class="ft js-log">
+                更多说明:
+                
+            </p>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_sharing_toolbox"></div>
+        </div>
+        
+        
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+        <script type="text/javascript" src="http://tajs.qq.com/stats?sId=55332900" charset="UTF-8"></script>
+    </div>
+<audio id="tts-audio"></audio>
+<script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>  
+<script>hljs.initHighlightingOnLoad();</script>
+<script srccc="http://s1.vued.vanthink.cn/9620823d300a/responsivevoice.1.4.5.min.js"></script>
+<script src="./js/responsivevoice.js"></script>
+<script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+<script type="text/javascript">
+    function log(str) {
+        $('.js-log').append('<p color="red">' + str + '</p>');   
+    }
+    $(document).ready(function() {
+      //  $('.js-words').focus();
+        log(navigator.userAgent);
+        $('.js-speak-word').on('click',function() {
+            var role  = $('.js-role').val().trim() || 'UK English Female';
+            var options = {
+                'volume': 1,
+                'rate': parseFloat($('.js-rate').val().trim()) ||  1.5,
+            };
+            
+            var words = $('.js-words').val().trim();
+            if(words == '') {
+                return alert('文本不能为空');
+            }
+            console.log(options)
+            responsiveVoice.speak(words, role, options);
+        })   
+       // document.querySelector('#tts-audio').play();
+        $('.js-test').on('click',function() {
+            var words = $(this).parents('tr').find('.js-sentence').text();
+            var $tr = $(this).parents('tr');
+            var time = new Date(); 
+            responsiveVoice.speak(words,'US English Female',{
+                onstart: function() {
+                    var timePre = (new Date()).getTime() - time; 
+                    $tr.find('.js-pre-time').text(timePre/1000 + ' s');
+                },
+                onend: function() {
+                    var timeOld = (new Date()).getTime() - time;
+                    time = new Date();
+                    console.log(timeOld);
+                    $tr.find('.js-time').text(timeOld/1000 + ' s');
+                }
+            });
+        });
+        
+        
+    })
+</script>
+
+</body>
+
+</html>
