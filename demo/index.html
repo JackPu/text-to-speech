@@ -93,7 +93,7 @@
 <audio id="tts-audio"></audio>
 <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>  
 <script>hljs.initHighlightingOnLoad();</script>
-<script srccc="http://s1.vued.vanthink.cn/9620823d300a/responsivevoice.1.4.5.min.js"></script>
+<script srccc="http://s1.vued.vanthink.cn/22c6bfba6d6d8edaebe856ad5d7cf5d2/responsivevoice.min.js"></script>
 <script src="./js/responsivevoice.js"></script>
 <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
 <script type="text/javascript">
@@ -103,6 +103,15 @@
     $(document).ready(function() {
       //  $('.js-words').focus();
         log(navigator.userAgent);
+        
+        if(window.speechSynthesis) {
+            setTimeout(function() {
+                speechSynthesis.getVoices().forEach(function(voice) {
+                    log((voice.name, voice.default ? '(default)' :'') + (voice.voiceURI));
+                });
+            },5000)
+            
+        }
         $('.js-speak-word').on('click',function() {
             var role  = $('.js-role').val().trim() || 'UK English Female';
             var options = {

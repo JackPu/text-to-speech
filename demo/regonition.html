@@ -97,47 +97,7 @@
 <script src="./js/responsivevoice.js"></script>
 <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
 <script type="text/javascript">
-    function log(str) {
-        $('.js-log').append('<p color="red">' + str + '</p>');   
-    }
-    $(document).ready(function() {
-      //  $('.js-words').focus();
-        log(navigator.userAgent);
-        $('.js-speak-word').on('click',function() {
-            var role  = $('.js-role').val().trim() || 'UK English Female';
-            var options = {
-                'volume': 1,
-                'rate': parseFloat($('.js-rate').val().trim()) ||  1.5,
-            };
-            
-            var words = $('.js-words').val().trim();
-            if(words == '') {
-                return alert('文本不能为空');
-            }
-            console.log(options)
-            responsiveVoice.speak(words, role, options);
-        })   
-       // document.querySelector('#tts-audio').play();
-        $('.js-test').on('click',function() {
-            var words = $(this).parents('tr').find('.js-sentence').text();
-            var $tr = $(this).parents('tr');
-            var time = new Date(); 
-            responsiveVoice.speak(words,'US English Female',{
-                onstart: function() {
-                    var timePre = (new Date()).getTime() - time; 
-                    $tr.find('.js-pre-time').text(timePre/1000 + ' s');
-                },
-                onend: function() {
-                    var timeOld = (new Date()).getTime() - time;
-                    time = new Date();
-                    console.log(timeOld);
-                    $tr.find('.js-time').text(timeOld/1000 + ' s');
-                }
-            });
-        });
-        
-        
-    })
+    
 </script>
 
 </body>
