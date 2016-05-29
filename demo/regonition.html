@@ -29,54 +29,10 @@
                  <input type="text" class="form-control js-rate" placeholder="音频速度(0-1.5)"/>
             </div>
             <div class="form-group">
-                 <select class="form-control js-role">
-                    <option value="">请选择发音人物</option>
-                    <option value="UK English Female">英式女士</option>
-                    <option value="US English Female">美式女士</option>
-                    <option value="UK English Male">英式男士</option>
-                    <option value="Japanese Female">日本女士</option>
-                    <option value="Chinese Female">中国女士</option>
-                    <option value="Australian Female">澳洲女士</option>
-                 </select>
-                <p class="text-left">默认为英式女性发音</p>
-            </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-primary js-speak-word">点击按钮发音</button>
+                <button type="button" class="btn btn-primary js-accept-word">点击按钮发音</button>
             </div>
         </form>
-        <h3>速度对比</h3>
-        <table class="table">
-            <tr>
-                <th>样句</th>
-                <th>预加载时间</th>
-                <th>时间</th>
-                <th>操作</th>
-            </tr>
-            <tr>
-                <td><span class="js-sentence">Hello I am Stark</span></td>
-                <td><span class="js-pre-time">未测试(0s)</span></td>
-                <td><span class="js-time">未测试(0s)</span></td>
-                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
-            </tr>
-            <tr>
-                <td><span class="js-sentence">Hello-I-am-Stark</span></td>
-                 <td><span class="js-pre-time">未测试(0s)</span></td>
-                <td><span class="js-time">未测试(0s)</span></td>
-                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
-            </tr>
-            <tr>
-                <td><span class="js-sentence">The cake in the photo had "Love Wins Fag" written on it in frosting — a message that would likely be upsetting to many</span></td>
-                 <td><span class="js-pre-time">未测试(0s)</span></td>
-                <td><span class="js-time">未测试(0s)</span></td>
-                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
-            </tr>
-            <tr>
-                <td><span class="js-sentence">The-cake-in-the-photo-had-"Love Wins Fag"-written-on-it-in-frosting — a-message-that-would-likely-be-upsetting-to-many</span></td>
-                 <td><span class="js-pre-time">未测试(0s)</span></td>
-                <td><span class="js-time">未测试(0s)</span></td>
-                <td><button type="button" class="btn btn-danger js-test">测试</button></td>
-            </tr>
-        </table>
+        
             
             <p class="ft js-log">
                 更多说明:
@@ -93,10 +49,14 @@
 <audio id="tts-audio"></audio>
 <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>  
 <script>hljs.initHighlightingOnLoad();</script>
-<script srccc="http://s1.vued.vanthink.cn/9620823d300a/responsivevoice.1.4.5.min.js"></script>
-<script src="./js/responsivevoice.js"></script>
 <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
 <script type="text/javascript">
+var recognition = new webkitSpeechRecognition();
+recognition.onresult = function(event) { 
+  console.log(event) 
+}
+recognition.start();
+    
     
 </script>
 
