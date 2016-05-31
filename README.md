@@ -5,8 +5,8 @@
 + [语音识别](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#speechreco-section) (将所说的转换成文本文字 / speech to text);
 + [语音合成](https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#tts-section) (将文本文字读出来 / text to speech);
 
-而chrome在版本33发布后宣布对该特性的支持;今天重要介绍第二部分。
-
+而chrome在版本33发布后宣布对该特性的支持;今天重要介绍第二部分。[第一部分](https://github.com/JackPu/text-to-speech/blob/master/web-speech-regonition.md)
+这里可以查看
 [演示地址](http://events.jackpu.com/text-to-speech/demo.html)
 
 ### 开始使用

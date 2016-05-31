@@ -20,7 +20,7 @@ recognition.start();
 #### 响应流
 [DEMO地址](https://www.google.com/intl/en/chrome/demos/speech.html)
 
-你需要等待用户准备好对话，并且知道对话结束；
+你需要等待用户准备好对话，并且直到对话结束；
 
 ``` js 
 var recognition = new webkitSpeechRecognition();
