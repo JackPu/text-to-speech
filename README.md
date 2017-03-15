@@ -9,6 +9,8 @@
 这里可以查看
 [演示地址](http://events.jackpu.com/text-to-speech/demo.html)
 
+如果你只需要使用英文，推荐使用[vanspeak](https://github.com/Vanthink-UED/vanspeak)这个插件，兼容不支持发音的浏览器。
+
 ### 开始使用
 
 ``` js
