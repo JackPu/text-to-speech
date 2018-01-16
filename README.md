@@ -114,7 +114,9 @@ audio.play();
 
 + [meSpeak.js ](http://www.masswerk.at/mespeak/)是一个100%的客户端发音类库，支持chrome和safari，并且无需要任何html元素；
 
-+ [say.js](https://github.com/marak/say.js/)一款基于node.js的发音扩展类库。
++ [say.js](https://github.com/marak/say.js/)一款基于node.js的发音扩展类库；
+
++ [vanspeak](https://github.com/Vanthink-UED/vanspeak) 一款国内开源的发音类库，支持原生和音频调用；
 
 持续更新中...
 
